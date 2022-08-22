@@ -2,6 +2,8 @@ package com.xworkz.supermarket.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.MappedSuperclass;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -13,11 +15,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter
 @Setter
-@Data
 @ToString
-
+@MappedSuperclass
 public class ParentEntity {
-	
+
 	private String createdBy;
 	private LocalDate createdDate;
 	private String updateBy;

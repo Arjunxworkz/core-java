@@ -10,24 +10,27 @@ import javax.validation.ValidatorFactory;
 import com.xworkz.supermarket.dao.SuperMarketDao;
 import com.xworkz.supermarket.dao.SuperMarketDaoImpl;
 import com.xworkz.supermarket.entity.SuperMaketEntity;
+
+import lombok.AllArgsConstructor;
+
 import java.util.Set;
 
-public class SuperMarketServiceDaoImpl implements SuperMarketServiceDao {
-	SuperMarketDao dao = new SuperMarketDaoImpl();
-
-	ValidatorFactory factory = getfactory();
+@AllArgsConstructor
+public class SuperMarketServiceImpl implements SuperMarketServic {
+	private SuperMarketDao dao;
 
 	@Override
-	public boolean save(SuperMaketEntity superMaketEntity) {
+	public boolean validateAndSave(SuperMaketEntity superMaketEntity) {
+		ValidatorFactory factory = getfactory();
 		Validator validator = factory.getValidator();
 		Set<ConstraintViolation<SuperMaketEntity>> violation = validator.validate(superMaketEntity);
-		if(violation.size()>0) {
+		if (violation.size() > 0) {
 			System.out.println("Invalid Detais");
-			
-		}else {
-            System.out.println("Valid Object");
-            dao.save(superMaketEntity);
-        }
+
+		} else {
+			System.out.println("Valid Object");
+			dao.save(superMaketEntity);
+		}
 
 		return false;
 	}

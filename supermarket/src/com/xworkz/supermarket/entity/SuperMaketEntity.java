@@ -9,8 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-
-
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,14 +30,13 @@ public class SuperMaketEntity extends ParentEntity {
 	@Id
 	@Min(value=1, message="id is not valid")
 	private Integer id;
-	@javax.validation.constraints.NotNull
+	@Size(min = 3,max = 20,message = "name is valid")
 	private String name;
-	@javax.validation.constraints.NotNull
+	@Size(min = 3,max = 20,message = "location is valid")
 	private String location;
-	@Min(10)
-	@Max(100)
+	
 	private Integer numberOfStall;
-	@Min(100)
+	@Min(1)
 	@Max(1000)
 	private String maximumCapacity;
 	
