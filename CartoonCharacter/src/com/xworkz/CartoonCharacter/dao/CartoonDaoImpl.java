@@ -136,8 +136,21 @@ public class CartoonDaoImpl implements CartoonDao {
 	}
 
 	@Override
-	public Object[] findNameAndCountryByAuthor(String author) {
-		// TODO Auto-generated method stub
+	public Object[] findNameAndCountryByAuthor(String author) {//7
+		EntityManager manager=factory.createEntityManager();
+		try {
+			Query query=manager.createNamedQuery("findNameAndCountryByAuthor");
+			
+			query.setParameter("au",author);
+			Object object = query.getSingleResult();
+			if (object != null) {
+				//return object;
+			}
+			
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -205,13 +218,13 @@ public class CartoonDaoImpl implements CartoonDao {
 	public void deleteByName(String name) {                       //11
 		EntityManager manager=	factory.createEntityManager();
 		try {
-			EntityTransaction tx=manager.getTransaction();
-			tx.begin();
+			//EntityTransaction tx=manager.getTransaction();
+		//	tx.begin();
 			Query query=manager.createNamedQuery("deleteByName");
 			//query.setParameter("nm", type);
-			query.setParameter("nm", name);
-			query.executeUpdate();
-			tx.commit();
+			//query.setParameter();
+			//query.remove();
+			//tx.commit();
 			
 		} catch (PersistenceException e) {
 			e.printStackTrace();

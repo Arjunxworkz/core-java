@@ -77,6 +77,8 @@ cartoons.add(cartoon10);
 //System.out.println(res);
 //cartoonDao.updateAuthorByName("jerry"," tom");
 //cartoonDao.updateTypeByName("nandan");
-cartoonDao.deleteByName("nandan");
+//cartoonDao.deleteByName("nandan");
+
+//cartoonDao.findAllNameAndCountryAndAuthor
 }
 }

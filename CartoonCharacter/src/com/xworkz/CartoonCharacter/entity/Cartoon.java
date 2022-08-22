@@ -43,7 +43,8 @@ import lombok.ToString;
 		@NamedQuery(name = "findCreatedDateByAuthor", query = "Select cart.createdDate from Cartoon cart where cart.author=:an"),
 		@NamedQuery(name="updateAuthorByName",query = "UPDATE Cartoon cart SET cart.author=:nm WHERE cart.name=:am"),
 		@NamedQuery(name="updateTypeByName",query="UPDATE Cartoon cart SET cart.type=:tp WHERE cart.name=:nm"),//10,
-		@NamedQuery(name = "deleteByName", query="DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste'")
+		@NamedQuery(name = "deleteByName", query="DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste'"),//11
+		@NamedQuery(name="findNameAndCountryByAuthor",query="Select cart.name,cart.country from Cartoon cart where cart.author=:au")
 })
 
 //cart.gender=:nm2,cart.author=:nm3,,cart.counrty=:nm1
