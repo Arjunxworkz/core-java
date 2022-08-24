@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -18,15 +18,21 @@ import lombok.Setter;
 import lombok.ToString;
 
 
-@Entity
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="market_info")
 @ToString(callSuper=true)
 @Getter
 @Setter
+@Entity
+
+@NamedQueries({
+	@NamedQuery (name = "deleteName", query = "delete from market SuperMaketEntity market where market.name = :nam")
+})
 
 public class SuperMaketEntity extends ParentEntity {
+	
 	@Id
 	@Min(value=1, message="id is not valid")
 	private Integer id;
@@ -35,7 +41,7 @@ public class SuperMaketEntity extends ParentEntity {
 	@Size(min = 3,max = 20,message = "location is valid")
 	private String location;
 	
-	private Integer numberOfStall;
+	private Integer numberOfStall;		
 	@Min(1)
 	@Max(1000)
 	private String maximumCapacity;

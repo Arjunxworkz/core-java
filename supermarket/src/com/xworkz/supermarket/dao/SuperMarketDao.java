@@ -4,7 +4,7 @@ import com.xworkz.supermarket.entity.SuperMaketEntity;
 
 public interface SuperMarketDao {
 boolean save(SuperMaketEntity superMaketEntity) ;
-SuperMaketEntity deleteById(Integer i);
+SuperMaketEntity deleteByName(String name);
 	
 
 }
